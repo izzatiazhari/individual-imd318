@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('images/background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+.title-image {
+	overflow: hidden;
+	position: fixed;
+    margin: 20px auto; /* Centers the image horizontally */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+	padding: 10px 0;
+	
+}
+
+.title-image img {
+    width: 100%; /* Makes the image responsive */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.topnav {
+	background-color: #8FC1E3 ;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    color: #ffd800;
+    padding: 10px 0;
+    text-align: center;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.topnav a {
+    color: #000000;
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+    transition: color 0.3s, background-color 0.3s;
+    position: relative;
+}
+
+.topnav a:hover {
+    background-color: #31708E; /* Dark purple */
+    color: #ffffff; /* Optional: Change text color on hover */
+    padding: 10px 20px; /* Increase padding to enlarge the background box */
+    border-radius: 5px; /* Optional: Add border radius for rounded corners */
+    text-decoration: none;
+}
+
+.topnav a.active {
+    background-color: #31708E; /* Dark purple */
+    color: #ffffff; /* Text color */
+    padding: 10px 20px; /* Increase padding to enlarge the background box */
+    border-radius: 5px; /* Optional: Add border radius for rounded corners */
+}
+
+main {
+	margin: 20px;
+}
+
+.gallery img {
+    width: 200px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.banner {
+    width: 100%; /* Full width of the screen */
+    position: relative; /* Ensure it's positioned properly */
+    margin-top: 60px; /* Adjust this value if your navbar height is different */
+	padding-bottom: 30px;
+}
+
+.banner img {
+    width: 100%; /* Make sure the image stretches across the full width of the screen */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any extra space below the image */
+}
+
+/* Footer Section */
+footer {
+	width: 100%;
+	background-color: #333;
+	color: white;
+	padding-top: 20px;
+	text-align: center;
+	position: relative;
+	bottom: 0;
+}
+
+footer p {
+	margin: 0;
+	font-size: 16px;
+}

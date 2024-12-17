@@ -1,0 +1,430 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family - My Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #5085A5;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: block;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .family-title {
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .family-title p {
+            color: white;
+        }
+
+        p, h2 {
+            text-align: center;
+			color: white;
+        }
+
+        .tree {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tree ul {
+            padding-top: 20px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tree li {
+            list-style-type: none;
+            margin: 0 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .tree li img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #31708E;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tree li img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .tree li span {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px;
+            background: #31708E;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .tree .parent ul {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .tree .children ul {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .tree ul {
+            margin-top: 20px;
+            padding-left: 0;
+        }
+
+		.heart {
+			font-size: 2em;
+			text-align: center;
+			margin: 20px 0;
+		}
+		
+		.tree .heart span {
+			font-size: 2em; 
+			text-align: center;
+			background: none;
+		}
+		
+        .footer-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #31708E;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .footer-btn:hover {
+            background-color: #255f6b;
+        }
+
+        .family-info {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .info-item {
+            width: 45%;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .info-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        td {
+            background-color: #f4f4f4;
+        }
+
+        @media (max-width: 768px) {
+            .info-item {
+                width: 100%;
+            }
+        }
+		
+		.wrap-text {
+			display: block;
+			overflow: hidden; /* Ensure the container clears the floated image */
+			padding: 20px 0;
+		}
+
+		.image-container {
+			float: left; 
+			margin-right: 20px;
+			width: 100px;
+			height: 100px;
+		}
+
+		.image-container img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover; /* Make sure the image covers the container */
+			border: 5px solid #31708E;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		.text-container {
+			overflow: hidden; /* Ensures that the text does not overlap */
+			text-align: justify; /* Makes the text align neatly */
+		}
+
+		.text-container p {
+			margin-bottom: 15px; /* Space between paragraphs */
+		}
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">🏠 Home</a>
+        <a href="biodata.html">👤 Biodata</a>
+        <a href="experience.html">💼 Experience</a>
+        <a href="education.html">🎓 Education</a>
+        <a href="family.html" class="active">👪 Family</a>
+		<a href="friends.html">🤝 Friends</a>
+        <a href="gallery.html">🖼️ Gallery</a>
+    </div>
+	<div class="banner">
+		<img src="images/banner_family.png" alt="Banner Family">
+	</div>
+    <main>
+        <div class="container">
+            <div class="family-title">
+                <h2>What is family?</h2>
+                <p>From my perspective, family is the person who sticks with us through thick and thin. The one who gives courage, motivates, trusts, and supports us when we need it. The word family is not only limited to our own blood but also to those that are dear to us.</p>
+            </div>
+        </div>
+
+	 <div class="container">
+	 <h2>My Family Tree</h2>
+	 <h2>(Click the image to see full details)</h2>
+		<div class="tree">
+			<ul>
+				<li class="parent">
+					<ul class="parents">
+						<li>
+							<a href="#ayah-ibu">
+								<img src="images/family_ayah.jpg" alt="Father">
+							</a>
+							<span>Abu Azhari</span>
+						</li>
+						<li class="heart">
+							<span>❤️</span>
+						</li>
+						<li>
+							<a href="#ayah-ibu">
+								<img src="images/family_ibu.jpg" alt="Mother">
+							</a>
+							<span>Shakinah</span>
+						</li>
+					</ul>
+					<ul class="children">
+						<li>
+							<a href="#kakak-ati">
+								<img src="images/family_kakak.jpg" alt="Child 1">
+							</a>
+							<span>Nur Farihah</span>
+						</li>
+						<li>
+							<a href="#kakak-ati">
+								<img src="images/family_ati.jpg" alt="Child 2">
+							</a>
+							<span>Nur Izzati</span>
+						</li>
+						<li>
+							<a href="#icha-keram">
+								<img src="images/family_icha.jpg" alt="Child 3">
+							</a>
+							<span>Nurain Farisha</span>
+						</li>
+						<li>
+							<a href="#icha-keram">
+								<img src="images/family_keram.jpg" alt="Child 4">
+							</a>
+							<span>Muhammad Nur Ikram</span>
+						</li>
+						<li>
+							<a href="#pain-dina">
+								<img src="images/family_pain.jpg" alt="Child 5">
+							</a>
+							<span>Nur Farahin Izwani</span>
+						</li>
+						<li>
+							<a href="#pain-dina">
+								<img src="images/family_dina.jpg" alt="Child 6">
+							</a>
+							<span>Nurul Irdina</span>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="ayah-ibu" class="family-info">
+			<div class="info-item">
+				<img src="images/family_ayah.jpg" alt="Ayah">
+				<h3>Full Name: Abu Azhari bin Abd Rahman</h3>
+				<table>
+					<tr><td><span>Nickname:</span></td><td>Ayah</td></tr>
+					<tr><td><span>Relationship:</span></td><td>Father</td></tr>
+					<tr><td><span>Age:</span></td><td>50</td></tr>
+					<tr><td><span>Occupation:</span></td><td>Primary School Teacher (Science)</td></tr>
+					<tr><td><span>Words from me:</span></td><td>I am sorry to be a daughter who always seeks money from you.</td></tr>
+				</table>
+			</div>
+
+			<div class="info-item">
+				<img src="images/family_ibu.jpg" alt="Ibu">
+				<h3>Full Name: Shakinah binti Abd Rahman</h3>
+				<table>
+					<tr><td><span>Nickname:</span></td><td>Ibu</td></tr>
+					<tr><td><span>Relationship:</span></td><td>Mother</td></tr>
+					<tr><td><span>Age:</span></td><td>50</td></tr>
+					<tr><td><span>Occupation:</span></td><td>Primary School Teacher (Mathematic Subject)</td></tr>
+					<tr><td><span>Words from me:</span></td><td>I will learn and help you cooks, but please teach me by my side.</td></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="kakak-ati" class="family-info">
+			<div class="info-item">
+				<img src="images/family_kakak.jpg" alt="Kakak">
+				<h3>Full Name: Nur Farihah</h3>
+				<table>
+					<tr><td><span>Nickname:</span></td><td>Kakak</td></tr>
+					<tr><td><span>Relationship:</span></td><td>Eldest Sister</td></tr>
+					<tr><td><span>Age:</span></td><td>23</td></tr>
+					<tr><td><span>Occupation:</span></td><td>Maybank worker (soonto-be)</td></tr>
+					<tr><td><span>Words from me:</span></td><td>Please earn a lot of money because I want to get an allowance from you too.</td></tr>
+				</table>
+			</div>
+
+			<div class="info-item">
+				<img src="images/family_ati.jpg" alt="Ati">
+				<h3>Full Name: Nur Izzati</h3>
+				<table>
+					<tr><td><span>Nickname:</span></td><td>Ati</td></tr>
+					<tr><td><span>Relationship:</span></td><td>Second sister (me)</td></tr>
+					<tr><td><span>Age:</span></td><td>20</td></tr>
+					<tr><td><span>Occupation:</span></td><td>UiTM Merbok’s Student</td></tr>
+					<tr><td><span>Words from me:</span></td><td>Chase your ‘Dean List’ and be independent.</td></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="icha-keram" class="family-info">
+			<div class="info-item">
+				<img src="images/family_icha.jpg" alt="Icha">
+				<h3>Full Name: Nurain Farisha</h3>
+				<table>
+					<tr><td><span>Nickname:</span></td><td>Icha</td></tr>
+					<tr><td><span>Relationship:</span></td><td>Third sister</td></tr>
+					<tr><td><span>Age:</span></td><td>18</td></tr>
+					<tr><td><span>Occupation:</span></td><td>Kolej Matrikulasi Kedah (KMK) student</td></tr>
+					<tr><td><span>Words from me:</span></td><td>Stop being grumpy.</td></tr>
+				</table>
+			</div>
+
+			<div class="info-item">
+				<img src="images/family_keram.jpg" alt="Keram">
+				<h3>Full Name: Muhammad Nur Ikram</h3>
+				<table>
+					<tr><td><span>Nickname:</span></td><td>Keram @ Ikram</td></tr>
+					<tr><td><span>Relationship:</span></td><td>The only brother</td></tr>
+					<tr><td><span>Age:</span></td><td>16</td></tr>
+					<tr><td><span>Occupation:</span></td><td>SMK Ulu Kinta’s student</td></tr>
+					<tr><td><span>Words from me:</span></td><td>Stop being lazy and help others clean the house.</td></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="pain-dina" class="family-info">
+			<div class="info-item">
+				<img src="images/family_pain.jpg" alt="Pain">
+				<h3>Full Name: Nur Farahin Izwani</h3>
+				<table>
+					<tr><td><span>Nickname:</span></td><td>Pain (Pa-in)</td></tr>
+					<tr><td><span>Relationship:</span></td><td>Fourth sister</td></tr>
+					<tr><td><span>Age:</span></td><td>14</td></tr>
+					<tr><td><span>Occupation:</span></td><td>SMK Raja Perempuan Bainun’s student</td></tr>
+					<tr><td><span>Words from me:</span></td><td>Keep your spirit to learn.</td></tr>
+				</table>
+			</div>
+
+			<div class="info-item">
+				<img src="images/family_dina.jpg" alt="Dina">
+				<h3>Full Name: Nurul Irdina</h3>
+				<table>
+					<tr><td><span>Nickname:</span></td><td>Dina</td></tr>
+					<tr><td><span>Relationship:</span></td><td>Youngest sister</td></tr>
+					<tr><td><span>Age:</span></td><td>4</td></tr>
+					<tr><td><span>Occupation:</span></td><td>Make the house messy</td></tr>
+					<tr><td><span>Words from me:</span></td><td>Be a good daughter and keep them company.</td></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+		<div class="container">
+			<div class="family-title">
+				<h3>The Ones I Also Consider as Family</h3>
+			</div>
+			<div class="family-info wrap-text">
+				<div class="image-container">
+					<img src="images/salman1.jpg" alt="Calman">
+					<h2>Salman Nurhakim Bin Sableh</h2>
+				</div>
+				<div class="text-container">
+					<p>He’s been there for me since day one, always helping me out whenever I needed it. Honestly, he’s the only person outside of my family that I feel completely comfortable opening up to and sharing everything with. To me, he’s kind, smart, hardworking, open-minded, and just overall a great person. He’s my rock, who always there for me, even at my lowest.</p>
+					<p>He’s never gotten angry at me or used hurtful words, and he just has this way of comforting others, even when he’s the one who might need it more. If I could tell him one thing, it would be to take care of himself, keep pushing forward, and stay motivated. And who knows? Maybe one day, we will get to marry each other when the time is right.</p>
+				</div>
+			</div>
+		</div>  
+	</main>
+	<footer>
+		<p>&copy; 2024 Nur Izzati binti Abu Azhari (KCDIM1105C). All rights reserved.</p>
+		<p>Recommended Browser: Google Chrome, Mozilla Firefox, Microsoft Edge</p>
+		<p>Recommended Resolution: 1920x1080 or higher</p>
+		<p>Last Updated: December 2024</p>
+	</footer>
+</body>
+</html>

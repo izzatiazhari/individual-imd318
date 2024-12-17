@@ -1,0 +1,209 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - My Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: #5085A5;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+        }
+
+        .container img {
+            width: 300px;
+            height: auto;
+            max-width: 500px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .container div {
+            margin-left: 20px;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .container h3 {
+            font-size: 24px;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+        }
+
+        .container p {
+            font-size: 16px;
+            color: #F7F9FB;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        .list {
+            font-size: 16px;
+            color: #F7F9FB;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .list li {
+            margin-bottom: 10px;
+        }
+
+        /* For primary school */
+        .primary-school {
+            list-style-type: decimal;
+        }
+
+        /* For high school */
+        .high-school {
+            list-style-type: upper-roman;
+        }
+
+        /* For university */
+        .university {
+            list-style-type: lower-alpha;
+        }
+
+        /* Styling for individual sections */
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #FFFFFF;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: #F7F9FB;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .image-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .image-section img {
+            max-width: 600px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">🏠 Home</a>
+        <a href="biodata.html">👤 Biodata</a>
+        <a href="experience.html" class="active">💼 Experience</a>
+        <a href="education.html">🎓 Education</a>
+        <a href="family.html">👪 Family</a>
+		<a href="friends.html">🤝 Friends</a>
+        <a href="gallery.html">🖼️ Gallery</a>
+    </div>
+    <div class="banner">
+        <img src="images/banner_experience.png" alt="Banner Experience">
+    </div>
+
+    <main>
+        <section class="container">
+            <div class="section-title">
+                <h3>Experience Overview</h3>
+            </div>
+            <div class="section-description">
+                <p>Apart from academic activities, I actively engage in various extracurricular activities, including leadership camps, part-time work, and sports.</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="section-title">
+                <h4>PRIMARY SCHOOL</h4>
+            </div>
+            <div class="image-section">
+                <img src="images/experience_primary.jpg" alt="Primary School Experience">
+            </div>			
+            <ol class="list primary-school">
+                <li>Netball school team</li>
+                <li>School Prefect</li>
+                <li>Sahibba Competition</li>
+                <li>Olahragawati</li>
+                <li>Joining field race event of 4x100m, 100m, 200m</li>
+                <li>Winner of long jump, high jump, and 4x100m</li>
+                <li>Participate for MSSD in high jump</li>
+            </ol>
+        </section>
+
+        <section class="container">
+            <div class="section-title">
+                <h4>HIGH SCHOOL</h4>
+            </div>
+            <div class="image-section">
+                <img src="images/experience_highschool.jpg" alt="High School Experience">
+            </div>
+            <ol class="list high-school">
+                <li>Leadership camp for PRS (I became Penghuluwati!)</li>
+                <li>Scrabble Competition</li>
+                <li>Handling ‘senamrobik’ for Kejohanan Sukan Olahraga Tahunan</li>
+                <li>Joining camp for form three students</li>
+                <li>Plans and executes Explorace after Pentaksiran Tingkatan 3 (PT3)</li>
+                <li>Handle the entry of new form four students</li>
+                <li>Joining field race event of 4x100m and 200m</li>
+                <li>Participate for MSSD in 200m</li>
+                <li>Compete for Rugby Touch Open</li>
+            </ol>
+        </section>
+
+        <section class="container">
+            <div class="section-title">
+                <h4>UNIVERSITY</h4>
+            </div>
+            <div class="image-section">
+                <img src="images/experience_university.jpg" alt="University Experience">
+            </div>
+            <ol class="list university">
+                <li>Joining a club (KEREX’S)</li>
+                <li>Learn more leadership skills during the program with Kerex’s</li>
+                <li>Learning life and survival skills in Kesatria Kembara</li>
+                <li>Part-time jobs at Icip-Icip, events, SE Club, and Murni’s Cafe</li>
+                <li>Internship at HFL Hygiene Industry Sdn. Bhd.</li>
+            </ol>
+        </section>
+		<section  class="container">
+            <div class="section-description">
+                <p>Through my experiences in school and university, I have picked up a ton of useful skills that
+					shaped who I am today. Sports like netball, track events, and rugby taught me teamwork,
+					discipline, and how to bounce back from challenges. Being a prefect and joining leadership
+					camps (like becoming Penghuluwati) boosted my confidence, communication, and decisionmaking skills.
+				</p>
+				<p>Organizing events like senamrobik and Explorace helped me sharpen my planning and
+					coordination abilities, while competitions like Sahibba and Scrabble pushed me to think
+					strategically and stay focused.
+				</p>
+				<p>At university, clubs like KEREX’s and programs like Kesatria Kembara taught me leadership and
+					survival skills, while part-time jobs gave me real-world experience in time management,
+					adaptability, and handling people. My internship at HFL Hygiene added teamwork and problemsolving to the mix. Altogether, these precious experiences taught me a lot about balancing
+					responsibilities, staying focused, and working with others.</p>
+            </div>
+		</section>
+    </main>
+	<footer>
+		<p>&copy; 2024 Nur Izzati binti Abu Azhari (KCDIM1105C). All rights reserved.</p>
+		<p>Recommended Browser: Google Chrome, Mozilla Firefox, Microsoft Edge</p>
+		<p>Recommended Resolution: 1920x1080 or higher</p>
+		<p>Last Updated: December 2024</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - My Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+	<style>
+	.container {
+		max-width: 1200px;
+		margin: 20px auto;
+		padding: 20px;
+		background-color: #5085A5;
+		border-radius: 10px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		display: block;
+		transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		text-align: center;
+	}
+
+	h2 {
+		color: #fff;
+	}
+	.gallery-container {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr); /* Creates a 4-column grid */
+		gap: 20px;
+		align-items: center; /* Ensures items are aligned properly in their respective grid cells */
+		justify-items: center; /* Centers items horizontally within each grid cell */
+	}
+
+	/* Gallery item container (image/video wrapper) */
+	.gallery-item {
+		position: relative;
+		width: 100%;
+		height: 300px; /* Set a fixed height for consistent grid item size */
+		overflow: hidden; /* Ensures content doesn’t overflow outside the container */
+		border-radius: 8px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #f0f0f0; /* Light background for videos/images */
+	}
+
+	/* Styling for images and videos to make them fill their container properly */
+	.gallery-item img, .gallery-item video {
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* Ensures the content covers the entire container while maintaining its aspect ratio */
+		border-radius: 8px;
+		transition: transform 0.3s ease;
+	}
+
+	/* Scale images and videos on hover */
+	.gallery-item img:hover, .gallery-item video:hover {
+		transform: scale(1.1); /* Slight zoom effect */
+	}
+
+	.lightbox {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.8);
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+	}
+
+	/* Content inside the lightbox */
+	.lightbox-content {
+		position: relative;
+		width: 80%;
+		max-width: 1000px;
+		display: flex;
+		justify-content: center; /* Centering the content horizontally */
+		align-items: center; /* Centering the content vertically */
+	}
+
+	.lightbox img, .lightbox video {
+		width: auto;
+		max-height: 600px;
+		height: auto;
+		border-radius: 8px;
+	}
+
+	/* Adjust portrait video size and center it */
+	.lightbox video.portrait {
+		max-height: 80vh;
+		max-width: 60%;
+		object-fit: contain;
+		margin: auto; /* Centering the video */
+	}
+
+	/* Adjust portrait image size and center it */
+	.lightbox img.portrait {
+		max-height: 80vh;
+		max-width: 60%;
+		object-fit: contain;
+		margin: auto; /* Centering the image */
+	}
+
+	/* Lightbox control buttons */
+	.lightbox-close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		background-color: #fff;
+		border: none;
+		border-radius: 50%;
+		padding: 10px;
+		font-size: 16px;
+		cursor: pointer;
+	}
+
+	.lightbox-prev, .lightbox-next {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background-color: rgba(0, 0, 0, 0.5);
+		color: white;
+		font-size: 30px;
+		border: none;
+		padding: 20px;
+		cursor: pointer;
+	}
+
+	.lightbox-prev {
+		left: 10px;
+	}
+
+	.lightbox-next {
+		right: 10px;
+	}
+
+	.category-btns {
+		margin-bottom: 20px;
+	}
+
+	.category-btns button {
+		padding: 10px 20px;
+		margin: 0 10px;
+		background-color: #406080;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	.category-btns button:hover {
+		background-color: #3e8e41;
+	}
+
+	.back-to-home {
+		display: block;
+		width: 150px;
+		padding: 10px;
+		text-align: center;
+		background-color: #333;
+		color: white;
+		text-decoration: none;
+		border-radius: 5px;
+		margin: 20px auto;
+	}
+
+	.back-to-home:hover {
+		background-color: #4CAF50;
+	}
+	</style>
+
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">🏠 Home</a>
+        <a href="biodata.html">👤 Biodata</a>
+        <a href="experience.html">💼 Experience</a>
+        <a href="education.html">🎓 Education</a>
+        <a href="family.html">👪 Family</a>
+		<a href="friends.html">🤝 Friends</a>
+        <a href="gallery.html" class="active">🖼️ Gallery</a>
+    </div>
+	<div class="banner">
+		<img src="images/banner_gallery.png" alt="Banner Gallery">
+	</div>
+    <main>
+	<audio id="background-music" loop>
+		<source src="musics/polaroid.mp3" type="audio/mp3">
+		Your browser does not support the audio element.
+	</audio>
+	<div class="category-btns">
+	<button id="play-music-btn">Play Background Music</button>
+	</div>
+        <div class="container">
+			<h2>My Gallery</h2>
+            <div class="category-btns">
+				<button onclick="filterCategory('all')">All</button>
+                <button onclick="filterCategory('cats')">CATS</button>
+                <button onclick="filterCategory('family')">FAMILY</button>
+                <button onclick="filterCategory('friends')">FRIENDS</button>
+                <button onclick="filterCategory('clubs')">CLUBS AND POSITIONS ACQUIRED</button>
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery-item cats">
+					<video src="videos/cats.mp4" controls onclick="openLightbox(this)"></video>
+                </div>
+                <div class="gallery-item family">
+                    <video src="videos/family.mp4" controls onclick="openLightbox(this)"></video>
+                </div>
+                <div class="gallery-item family">
+                    <img src="images/family1.jpg" alt="Family 1" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item family">
+                    <img src="images/family2.jpg" alt="Family 2" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item family">
+                    <img src="images/family3.jpg" alt="Family 3" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item family">
+                    <img src="images/family4.jpg" alt="Family 4" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item family">
+                    <img src="images/family5.jpg" alt="Family 5" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item family">
+                    <img src="images/family6.jpg" alt="Family 6" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item family">
+                    <img src="images/family7.jpg" alt="Family 7" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item family">
+                    <img src="images/family8.jpg" alt="Family 8" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item family">
+                    <img src="images/family9.jpg" alt="Family 9" onclick="openLightbox(this)">
+                </div>
+				<div class="gallery-item friends">
+					<img src="images/friends1.jpg" alt="Friends 1" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends2.jpg" alt="Friends 2" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends3.jpg" alt="Friends 3" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends4.jpg" alt="Friends 4" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends5.jpg" alt="Friends 5" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends6.jpg" alt="Friends 6" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends7.jpg" alt="Friends 7" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends8.jpg" alt="Friends 8" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends9.jpg" alt="Friends 9" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends10.jpg" alt="Friends 10" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends11.jpg" alt="Friends 11" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends12.jpg" alt="Friends 12" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends13.jpg" alt="Friends 13" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends14.jpg" alt="Friends 14" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends15.jpg" alt="Friends 15" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends16.jpg" alt="Friends 16" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends17.jpg" alt="Friends 17" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends18.jpg" alt="Friends 18" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends19.jpg" alt="Friends 19" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends20.jpg" alt="Friends 20" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends21.jpg" alt="Friends 21" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends22.jpg" alt="Friends 22" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends23.jpg" alt="Friends 23" onclick="openLightbox(this)">
+				</div>
+				<div class="gallery-item friends">
+					<img src="images/friends24.jpg" alt="Friends 24" onclick="openLightbox(this)">
+				</div>
+                <div class="gallery-item events">
+                    <img src="images/friends25.jpg" alt="Events 1" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item events">
+                    <img src="images/friends26.jpg" alt="Events 1" onclick="openLightbox(this)">
+                </div>
+                <div class="gallery-item friends">
+					<video src="videos/friends.mp4" controls onclick="openLightbox(this)"></video>
+                </div>
+                <div class="gallery-item friends">
+					<video src="videos/friends2.mp4" controls onclick="openLightbox(this)"></video>
+                </div>
+                <div class="gallery-item events">
+                    <video src="videos/friends3.mp4" controls onclick="openLightbox(this)"></video>
+                </div>
+                <div class="gallery-item clubs">
+                    <img src="images/club1.jpg" alt="Clubs 1" onclick="openLightbox(this)">
+                </div>
+				<div class="gallery-item clubs">
+                    <img src="images/club2.jpg" alt="Clubs 2" onclick="openLightbox(this)">
+                </div>
+				<div class="gallery-item clubs">
+                    <img src="images/club3.jpg" alt="Clubs 3" onclick="openLightbox(this)">
+                </div>
+            </div>
+
+            <!-- Lightbox -->
+            <div id="lightbox" class="lightbox">
+                <button class="lightbox-close" onclick="closeLightbox()">×</button>
+                <button class="lightbox-prev" onclick="changeMedia(-1)">&#10094;</button>
+                <div class="lightbox-content">
+                    <img id="lightbox-img" src="" alt="Lightbox Image">
+                    <video id="lightbox-video" controls style="display:none;"></video>
+                </div>
+                <button class="lightbox-next" onclick="changeMedia(1)">&#10095;</button>
+            </div>
+
+            <a href="index.html" class="back-to-home">Back to Home</a>
+			<a href="gallery.html" class="back-to-home">Back to Top</a>
+        </div>
+    </main>
+	<footer>
+		<p>&copy; 2024 Nur Izzati binti Abu Azhari (KCDIM1105C). All rights reserved.</p>
+		<p>Recommended Browser: Google Chrome, Mozilla Firefox, Microsoft Edge</p>
+		<p>Recommended Resolution: 1920x1080 or higher</p>
+		<p>Last Updated: December 2024</p>
+	</footer>
+</body>
+</html>

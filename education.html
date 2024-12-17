@@ -1,0 +1,210 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - My Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+	.container {
+		display: flex;
+		align-items: start;
+		justify-content: space-between;
+		padding: 20px;
+		margin: 20px 0;
+		border-radius: 8px;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+		opacity: 0;
+		transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+		background: #5085A5;
+		text-align: justify;
+	}
+
+	.container img {
+		width: 370px;
+		height: 300px;
+		border-radius: 8px;
+		margin-right: 20px;
+		margin-left: 20px;
+	}
+
+	.container div {
+		margin-left: 20px;
+		margin-right: 20px;
+		text-align: left;
+		flex-grow: 1;
+		overflow: hidden;
+	}
+
+	.container h3 {
+		text-align: left;
+		margin-left: 0;  
+		margin-right: 0; 
+		font-size: 24px;
+		color: #FFFFFF;
+	}
+
+	.container:nth-child(4) h3 {
+		margin-left: 20px;
+	}
+
+	.container:nth-child(4) {
+		display: block;
+	}
+
+	.container p {
+		margin: 0;
+		font-size: 16px;
+		color: #F7F9FB;
+		text-align: justify;
+	}
+
+	/* Animation for odd containers (slide from left) */
+	@keyframes slideFromLeft {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Animation for even containers (slide from right) */
+    @keyframes slideFromRight {
+        0% {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Apply animation */
+    .container.animated:nth-child(odd) {
+        animation: slideFromLeft 3s ease forwards;
+    }
+
+    .container.animated:nth-child(even) {
+        animation: slideFromRight 3s ease forwards;
+    }
+
+    .container:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+	
+	.faq-answer {
+		display: none;
+		margin-top: 10px;
+		color: #555;
+	}
+
+	.faq-toggle {
+		background-color: #406080;
+		color: white;
+		padding: 5px 10px;
+		border: none;
+		cursor: pointer;
+		border-radius: 5px;
+		font-size: 16px;
+		text-align: center;
+		transition: background-color 0.3s;
+	}
+
+	.faq-toggle:hover {
+		background-color: #3e8e41;
+	}
+	
+	.container ol {
+		color: white; 
+		font-size: 16px;
+		padding-left: 20px;
+	}
+
+	.container ol li {
+		margin-bottom: 10px;
+	}
+
+</style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">🏠 Home</a>
+        <a href="biodata.html">👤 Biodata</a>
+        <a href="experience.html">💼 Experience</a>
+        <a href="education.html" class="active">🎓 Education</a>
+        <a href="family.html">👪 Family</a>
+		<a href="friends.html">🤝 Friends</a>
+        <a href="gallery.html">🖼️ Gallery</a>
+    </div>
+	<div class="banner">
+		<img src="images/banner_education.png" alt="Banner Education">
+	</div>
+    <main>
+        <section class="container">
+            <img id="school1-img" src="images/uitm1.jpg" alt="School Image 1">
+            <div>
+                <h3>UiTM Merbok, Kedah</h3>
+                <p>I spent two and a half years at UiTM Merbok pursuing a Diploma in Information Management, and it’s been such a meaningful chapter of my life. The course was general, covering everything from records management to programming, libraries, and multimedia. It gave me a solid foundation and helped me figure out what I want to focus on for my degree later. 
+				What made it even more special was my classmates. From semester one to the final semester, we stayed together as Class C, and over time, we really got to know each other. They are honestly the best classmates I could have asked for.
+				The experiences I gained on campus have been invaluable. From academic lessons to personal growth, every moment has helped shape me into someone better. I would say it’s all been a stepping stone toward becoming the person I aspire to be.</p>
+				<br>
+				<p>If you are also a UiTM student or interested in applying to UiTM, you can learn more by browsing into this link: <a href="https://www.uitm.edu.my">UiTM</a>.</p>
+
+				<p>
+					<b><i>FAQ: Why did I choose this program?</i></b>
+					<button class="faq-toggle" onclick="toggleAnswer()">Click to see explanation</button>
+				</p>
+
+				<div class="faq-answer" id="faqAnswer">
+					<i><p>When choosing the programs on UPU during my SPM era, I blindly put any program that I think sounds interesting, as the result shows little choice. This happens because they were using the SPM’s trial result, which I did not score.</p>
+					<br><p>Fortunately, after I had done placing all 12 programs in the UPUs, I began to search for the program and read the comments via the student’s blog. The diploma in Information Management is placed as my second choice after the Foundation of Microbiology, if I am not mistaken.</p>
+					<br><p>Overall, I have not regretted my decision to enroll in this UPU course. I get to run from all science-related subjects and even did not have to use a calculator anymore. Most of the tasks in this program require me to memorize a large amount of the subject's content.</p>
+					</i>
+				</div>
+            </div>
+        </section>
+
+        <section class="container">
+            <img id="school2-img" src="images/igop1.jpeg" alt="School Image 2">
+            <div>
+                <h3>SBP Integrasi Gopeng, Perak</h3>
+                <p>High school at SBP Integrasi Gopeng (IGOP) was full of bittersweet memories, especially with my batch, xVnet, which had 111 students. The school divided us into DLP (Dual Language Program) and Non-DLP groups—students who learned in English and those who did not. I started as a Non-DLP student in the lower forms but switched to DLP when I moved to the upper forms. For my senior years, I chose the science stream and joined the Razi class.
+				Being active in school was my thing! I became a *Pembimbing Rakan Sebaya (PRS)* as early as Form 2 and worked my way up to vice head PRS in my final year. Outside of PRS, I was all in for activities like rugby touch, NILAM, and Scrabble competitions. I also loved attending leadership camps, it was such a great way to grow and learn new skills.
+				Looking back, there were plenty of ups and downs, but those experiences shaped me into who I am today. From making lifelong friends to juggling schoolwork and extracurriculars, every moment at IGOP was worth it. My xVnet girls will always hold a special place in my heart!</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <img id="school3-img" src="images/sk1.jpg" alt="School Image 3">
+            <div>
+                <h3>SK Pakatan Jaya</h3>
+                <p>SK Pakatan Jaya holds a special place in my heart. It is where I spent six wonderful years from Grade 1 to Grade 6 in Tera's class and made lifelong friends. These friendships are so precious to me, and even now, we still keep in touch. What made it even more special was how diverse our group was, with friends from different races: those are Malay, Chinese, and Indian. Every year during Raya Aidilfitri, we make it a point to reunite, visiting each other’s homes and even our teachers, who, thankfully, still remember us!
+				Sometimes during semester breaks, a few of us would meet up in smaller groups to catch up and relive old memories. These little moments keep the bond alive, no matter how far life takes us. 
+				Even though life has taken us in different directions, the memories from SK Pakatan Jaya remain etched in my heart. Those days taught me the value of friendship and community, and I’m grateful for every bit of it.</p>
+            </div>
+        </section>
+		
+		<section class="container">
+			<h3>Achievements</h3>
+			<ol>
+				<li>Dean List Award for four consecutive semesters.</li>
+				<li>Basketball Champion during Sukan Antara Fakulti (SAF).</li>
+				<li>Exco Orienteering in Kelab Rekreasi dan Sukan Ekstrem (KEREX’S).</li>
+				<li>StarOne Certificate (a verified kayak trainer).</li>
+				<li>Groupmate team leader every semester.</li>
+			</ol>
+		</section>
+    </main>
+	<footer>
+		<p>&copy; 2024 Nur Izzati binti Abu Azhari (KCDIM1105C). All rights reserved.</p>
+		<p>Recommended Browser: Google Chrome, Mozilla Firefox, Microsoft Edge</p>
+		<p>Recommended Resolution: 1920x1080 or higher</p>
+		<p>Last Updated: December 2024</p>
+	</footer>
+</body>
+</html>
